@@ -1,26 +1,74 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #fdf1e7;
+  --surface: #ffffff;
+  --surface-alt: #fbe3d0;
+  --ink: #161008;
+  --accent: #ec7113;
+  --accent-ink: #161008;
+  --border: #161008;
+  --shadow: #161008;
+  --muted: #8e440b;
+}
+
+[data-theme="dark"] {
+  --bg: #1b0d02;
+  --surface: #2a1608;
+  --surface-alt: #472207;
+  --ink: #fbe6d3;
+  --accent: #f4954d;
+  --accent-ink: #161008;
+  --border: #fbe6d3;
+  --shadow: #000000;
+  --muted: #f4aa71;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-alt: var(--surface-alt);
+  --color-ink: var(--ink);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-border: var(--border);
+  --color-muted: var(--muted);
+  --font-heading: var(--font-archivo-black), sans-serif;
+  --font-body: var(--font-space-grotesk), system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/*
+ * Tailwind's utilities live in `@layer utilities`, and CSS cascade layers
+ * rank above specificity: any unlayered rule beats every layered rule no
+ * matter how specific the layered selector is. These base element styles
+ * must sit in `@layer base` (declared before `utilities` by Tailwind) so
+ * that a component's `hover:text-*` utility can still override the default
+ * `a:hover` link color on buttons rendered as <a> tags.
+ */
+@layer base {
+  html {
+    scroll-behavior: smooth;
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    transition:
+      background 0.2s,
+      color 0.2s;
+  }
+
+  a {
+    color: var(--muted);
+  }
+
+  a:hover {
+    color: var(--accent);
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: var(--accent-ink);
+  }
 }

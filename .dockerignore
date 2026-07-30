@@ -1,0 +1,10 @@
+node_modules
+.next
+.git
+.claude-design
+npm-debug.log*
+pnpm-debug.log*
+.env*
+.vscode
+.DS_Store
+*.md
