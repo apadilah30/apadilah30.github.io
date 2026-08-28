@@ -1,7 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: "standalone",
+  output: process.env.NODE_ENV === "development" ? undefined : "export",
+  images: {
+    unoptimized: true,
+  },
+  trailingSlash: true,
 };
 
 export default nextConfig;
+

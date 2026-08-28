@@ -1,37 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Agus Padilah — Portfolio & Engineering Showcase
 
-## Getting Started
+Modern neo-brutalist portfolio built with **Next.js 16 (App Router)**, **React 19**, and **Tailwind CSS v4**. Optimized for static export and deployment to **GitHub Pages**.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Panduan Deployment ke GitHub Pages (CI/CD)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Repositori ini telah disiapkan untuk build & deploy otomatis ke GitHub Pages menggunakan **GitHub Actions** (`.github/workflows/nextjs.yml`).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Langkah-langkah Deployment:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **Commit & Push Perubahan ke GitHub**:
+   Pastikan file `package-lock.json` ikut ter-commit ke repositori:
+   ```bash
+   git add .
+   git commit -m "fix: add package-lock.json & configure github pages workflow"
+   git push origin main
+   ```
 
-## Learn More
+2. **Aktifkan GitHub Pages via GitHub Actions di Repository Settings**:
+   - Buka repositori Anda di GitHub.
+   - Buka menu **Settings** → **Pages** (di sidebar sebelah kiri).
+   - Pada bagian **Build and deployment** → **Source**, ubah pilihan menjadi **GitHub Actions** (bukan *Deploy from a branch*).
 
-To learn more about Next.js, take a look at the following resources:
+3. **Verifikasi Jalannya Deployment**:
+   - Setiap kali melakukan `push` ke branch `main` atau `master`, workflow **Deploy Next.js site to Pages** akan berjalan otomatis.
+   - Anda juga bisa men-trigger build manual di tab **Actions** → pilih **Deploy Next.js site to Pages** → klik **Run workflow**.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🛠️ Ringkasan Fitur Aplikasi
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-"# portfolio-v2" 
+- **Next.js 16 & React 19**: App Router dengan static export (`out/`).
+- **AI Automation & Integration**: Showcase pipeline AI, integrasi LLM, dan otomatisasi ekstraksi data bisnis.
+- **Portofolio Showcase**: Penekanan metrik performa & studi kasus arsitektur produksi.
+- **Organisasi Saat Ini**: Menampilkan hanya peran dan organisasi aktif (Telkomsel & IndoApps).
+- **Dark / Light Mode**: Tema neo-brutalist dengan toggle interaktif dan sinkronisasi preferensi sistem/localStorage.
